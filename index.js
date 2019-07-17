@@ -38,6 +38,45 @@ u2.then(function(data) {
         console.error(e)
     });
 
+// AMELIORATION DU CODE PRECEDENT
+function getUser(userName) {
+    // console.log(userName, user.name); // Tests
+    // Connexion à un serveur
+    return new Promise(function(resolve, reject) {
+        setTimeout(function() {
+            if (user.name.toLowerCase() === userName.trim().toLowerCase()) {
+                resolve(user);
+            } else {
+                reject("Il y a eut un probleme à la connexion BDD");
+            }
+        }, 3000);
+    });
+}
+
+getUser("Michael")
+    .then(data => console.log(data))
+    .catch(e => console.error(e));
+
+getUser("Coco")
+    .then(data => console.log(data))
+    .catch(e => console.error(e));
+
+// EXEMPLES //
+
+// function sayHello(){
+//     console.log("coucou les coco");
+// }
+
+// const sayHello = function(){
+//     console.log("coucou les coco");
+// }
+
+// const sayHello = (name) => console.log(`Salut ${name} !`);
+// sayHello("Coco");
+// sayHello("Jaco");
+// sayHello("Pedro");
+// sayHello();
+
 
 
 // GESTION D'UNE PROMESSE
